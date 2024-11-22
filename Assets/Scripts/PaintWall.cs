@@ -1,19 +1,24 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class PaintWall : MonoBehaviour
 {
     public Sprite brushSprite; 
     public float brushSize = 0.5f; 
-    public Material[] paintColors; 
-    public TextMeshPro percentageText; 
-
+    public TextMeshPro percentageText;  
+    public Slider brushSizeSlider;  
+    public Material[] paintMaterials; 
+    private Color currentColor;  
     private Renderer wallRenderer;
     private Texture2D wallTexture;  
     private Color[] brushPixels;    
-    private HashSet<Vector2Int> paintedPixels;  
-    private int totalPixels;  
+    private HashSet<Vector2> paintedPixels = new HashSet<Vector2>(); 
+
+    private int totalPixels;
+    private int paintedCount;
+
 
     private void Start()
     {
@@ -28,18 +33,28 @@ public class PaintWall : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Texture is not readable");
+            Debug.LogError("Cannot read brush sprite!");
         }
 
-        paintedPixels = new HashSet<Vector2Int>();  
-        totalPixels = wallTexture.width * wallTexture.height;  
+        totalPixels = wallTexture.width * wallTexture.height;
+        paintedCount = 0;
+        
+        currentColor = paintMaterials[0].color;
+
+        
+        if (brushSizeSlider != null)
+        {
+            brushSizeSlider.onValueChanged.AddListener(SetBrushSize);
+            brushSizeSlider.value = 0.5f;  
+        }
     }
 
     void Update()
     {
         HandleBrushMovement();
         HandleBrushPainting();
-        UpdatePercentageText();  
+        
+        UpdatePercentage();
     }
 
     void HandleBrushMovement()
@@ -48,14 +63,12 @@ public class PaintWall : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = touch.position;
-
-            
             Ray ray = Camera.main.ScreenPointToRay(touchPos);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                //print("test");
+                // test
             }
         }
     }
@@ -82,7 +95,8 @@ public class PaintWall : MonoBehaviour
 
     void Paint(Vector2 textureCoord)
     {
-        Color color = paintColors[0].color;  
+        Color color = currentColor; 
+        
         int pixelX = (int)(textureCoord.x * wallTexture.width);
         int pixelY = (int)(textureCoord.y * wallTexture.height);
         
@@ -100,7 +114,7 @@ public class PaintWall : MonoBehaviour
                     textureIndexY >= 0 && textureIndexY < brushSprite.texture.height)
                 {
                     Color brushPixel = brushPixels[textureIndexY * brushSprite.texture.width + textureIndexX];
-                    if (brushPixel.a > 0)  // if there is alpha value
+                    if (brushPixel.a > 0)  
                     {
                         int offsetX = pixelX + i - brushWidth / 2;
                         int offsetY = pixelY + j - brushHeight / 2;
@@ -108,12 +122,18 @@ public class PaintWall : MonoBehaviour
                         if (offsetX >= 0 && offsetX < wallTexture.width &&
                             offsetY >= 0 && offsetY < wallTexture.height)
                         {
-                            //checking if painted before
-                            Vector2Int pixelPos = new Vector2Int(offsetX, offsetY);
-                            if (!paintedPixels.Contains(pixelPos))
+                            Vector2 pixelCoord = new Vector2(offsetX, offsetY);
+                            
+                            if (!paintedPixels.Contains(pixelCoord)) 
                             {
                                 wallTexture.SetPixel(offsetX, offsetY, color);
-                                paintedPixels.Add(pixelPos);  
+                                paintedPixels.Add(pixelCoord); 
+                                paintedCount++;  
+                            }
+                            else
+                            {
+                                wallTexture.SetPixel(offsetX, offsetY, color);
+                                paintedPixels.Add(pixelCoord);
                             }
                         }
                     }
@@ -121,24 +141,26 @@ public class PaintWall : MonoBehaviour
             }
         }
 
-        wallTexture.Apply();  
+        wallTexture.Apply();
     }
 
-    
-    void UpdatePercentageText()
+    void UpdatePercentage()
     {
-        float percentage = (float)paintedPixels.Count / totalPixels * 100f;
-        percentageText.text = "Painted: " + Mathf.RoundToInt(percentage) + "%";
+        float percentage = (float)paintedCount / totalPixels * 100;
+        
+        if (percentageText != null)
+        {
+            percentageText.text = "Painted: " + Mathf.RoundToInt(percentage) + "%";
+        }
     }
     
-    //ui'dan cagiracagim yarin
     public void SetBrushColor(int colorIndex)
     {
-        paintColors[0] = paintColors[colorIndex];
+        currentColor = paintMaterials[colorIndex].color;
     }
-    //ui'dan cagiracagim yarin
+    
     public void SetBrushSize(float size)
     {
-        brushSize = size;
+        brushSize = Mathf.Lerp(0.01f, 0.05f, size);
     }
 }
