@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle/RotatingPlatform
   - PaintableWall
+  - Collectible/Coin
+  - Obstacle/Static
   layers:
   - Default
   - TransparentFX
