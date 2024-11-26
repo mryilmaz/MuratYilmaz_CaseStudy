@@ -8,6 +8,8 @@ TagManager:
   - PaintableWall
   - Collectible/Coin
   - Obstacle/Static
+  - Zone/Finish
+  - Obstacle/RotatorBody
   layers:
   - Default
   - TransparentFX

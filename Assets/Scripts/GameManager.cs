@@ -4,27 +4,29 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public event Action onLevelFinished,onLevelStart,coinIncrement;
+    public event Action onLevelFinished,onLevelStart,coinIncrement,onPlayerFail;
     private int coinAmount;
+    private int failCount;
 
     private void Awake()
     {
-        
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);  
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);  
         }
+        failCount = PlayerPrefs.GetInt("FailCount", 0); 
     }
 
     private void Start()
     {
-        OnLevelStart();
+            OnLevelStart();
     }
+
 
     private void Update()
     {
@@ -32,6 +34,11 @@ public class GameManager : MonoBehaviour
         {
             onLevelFinished?.Invoke();
             CoinAmount += 5;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+           OnPlayerFail();
         }
     }
 
@@ -45,6 +52,13 @@ public class GameManager : MonoBehaviour
     {
         onLevelStart?.Invoke();
     }
+    public void OnPlayerFail()
+    {
+        failCount++;  
+        PlayerPrefs.SetInt("FailCount", failCount);  
+        PlayerPrefs.Save();  
+        onPlayerFail?.Invoke(); 
+    }
 
     public int CoinAmount
     {
@@ -55,5 +69,9 @@ public class GameManager : MonoBehaviour
             coinAmount = value;
             coinIncrement?.Invoke();
         }
+    }
+    public int FailCount
+    {
+        get => failCount;
     }
 }

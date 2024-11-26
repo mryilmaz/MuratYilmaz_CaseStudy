@@ -7,12 +7,13 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform player;       
     [SerializeField] private Vector3 offset;        
     [SerializeField] private float smoothSpeed = 0.125f; 
+    [SerializeField] private Transform endPoint; 
 
     private Vector3 velocity = Vector3.zero; 
     private Vector3 smoothPosition;
     private bool followingPlayer = true;
 
-    private void Awake()
+    private void Start()
     {
         GameManager.instance.onLevelFinished += GoEndingPosition;
     }
@@ -32,6 +33,7 @@ public class CameraController : MonoBehaviour
     private void GoEndingPosition()
     {
         followingPlayer = false;
-        //transform.DOMove(new Vector3(0, 0, 0), 1); test
+        transform.DOMove(endPoint.position, 1).SetEase(Ease.OutSine);
+        transform.DORotateQuaternion(endPoint.rotation, 1).SetEase(Ease.OutSine);
     }
 }
