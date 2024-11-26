@@ -103,18 +103,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7846031996442425563, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1494553495715406836, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 864c5b06dffa547d6b548e9c59974fba, type: 2}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle/HalfDonut
+      objectReference: {fileID: 0}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle/HalfDonut
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Name
       value: Half_Donut_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204645097777561231, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1448080858842364814, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 864c5b06dffa547d6b548e9c59974fba, type: 2}
+    - target: {fileID: 3410551036206497869, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608300217322972967, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879453060023841511, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8986700585255289605, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -223,18 +279,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7846031996442425563, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1494553495715406836, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 864c5b06dffa547d6b548e9c59974fba, type: 2}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle/HalfDonut
+      objectReference: {fileID: 0}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1381518238074381133, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle/HalfDonut
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -82161830586255251, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Name
       value: Half_Donut_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204645097777561231, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1448080858842364814, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 864c5b06dffa547d6b548e9c59974fba, type: 2}
+    - target: {fileID: 3410551036206497869, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608300217322972967, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879453060023841511, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8986700585255289605, guid: 31eebcf3744c4455e92cc8a2c4535ef9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

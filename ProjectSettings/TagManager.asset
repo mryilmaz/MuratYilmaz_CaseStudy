@@ -10,6 +10,10 @@ TagManager:
   - Obstacle/Static
   - Zone/Finish
   - Obstacle/RotatorBody
+  - Obstacle/HalfDonut
+  - Opponent
+  - OpponentFinish
+  - Obstacle/Shining
   layers:
   - Default
   - TransparentFX

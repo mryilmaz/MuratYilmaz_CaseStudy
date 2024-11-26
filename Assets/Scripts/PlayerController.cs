@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float minZ = -0.7f;
     [SerializeField] private float maxZ = float.MaxValue;  
     
-    private RotatingPlatform currentPlatform; 
+    private RotatingPlatform rotatingPlatform; 
     
     [SerializeField] private float platformForce = 5f;
     
@@ -48,9 +48,9 @@ public class PlayerController : MonoBehaviour
 
             UpdateAnimation(move);
 
-            if (currentPlatform != null)
+            if (rotatingPlatform != null)
             {
-                ApplyPlatformForce(currentPlatform);
+                ApplyPlatformForce(rotatingPlatform);
             }
         }
     }
@@ -111,10 +111,10 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Obstacle/RotatingPlatform"))
         {
             
-            RotatingPlatform platform = other.GetComponent<RotatingPlatform>();
+            var platform = other.GetComponent<RotatingPlatform>();
             if (platform != null)
             {
-                currentPlatform = platform; 
+                rotatingPlatform = platform; 
             }
         }
     }
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Obstacle/RotatingPlatform"))
         {
-            currentPlatform = null; 
+            rotatingPlatform = null; 
         }
     }
 
